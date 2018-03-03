@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mentotee.mybatis.MagazineMapper">
+	
+	<select id="getList" resultType="magazine">
+		select m.*, a.email from magazine m, accounts a where m.accounts_num = a.accounts_num;
+	</select>
+
+	<insert id="insert" parameterType="magazine">
+		insert into magazine
+		(accounts_num,title,contents,auth,regdate)
+		values
+		(#{accounts_num},#{title},#{contents},#{auth},DATE_FORMAT(now(), '%Y-%m-%d'))
+	</insert>
+	
+	
+</mapper>

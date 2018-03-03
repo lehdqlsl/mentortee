@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<!-- alias -->
+		<typeAlias type="com.mentotee.app.vo.AccountsVO" alias="accounts"/>
+		<typeAlias type="com.mentotee.app.vo.MatchingsVO" alias="matchings"/>
+		<typeAlias type="com.mentotee.app.vo.MagazineVO" alias="magazine"/>
+	</typeAliases>
+
+	<mappers>
+		<!-- Mapper -->
+		<mapper resource="com/mentotee/mybatis/AccountsMapper.xml" />
+		<mapper resource="com/mentotee/mybatis/MatchingsMapper.xml" />
+		<mapper resource="com/mentotee/mybatis/MagazineMapper.xml" />
+	</mappers>
+
+</configuration>

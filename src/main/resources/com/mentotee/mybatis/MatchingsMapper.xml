@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mentotee.mybatis.MatchingsMapper">
+	<select id="getMenteeList" resultType="matchings" parameterType="int">
+		select * from matchings where mentor_id = #{id}
+	</select>
+
+	<select id="getMentorList" resultType="matchings" parameterType="int">
+		select * from matchings where mentee_id = #{id}
+	</select>
+	
+	<insert id="insert" parameterType="matchings">
+		insert into matchings
+		(mentor_id,mentee_id,state,date_applied,date_updated,date_expire,t_remark)
+		values
+		(#{mentor_id},#{mentee_id},#{state},curdate(),null,date_add(curdate(),interval 28 day),#{t_remark})
+	</insert>
+
+	<update id="update" parameterType="matchings">
+		update matchings set state =
+		#{state} where mentor_id = #{mentor_id} and mentee_id = #{mentee_id}
+	</update>
+
+	<update id="updateToken">
+		update accounts set token = #{token} where
+		accounts_num = #{accounts_num}
+	</update>
+	<select id="getInfo" resultType="accounts" parameterType="string">
+		select
+		* from accounts where email = #{email}
+	</select>
+
+	<select id="getInfo1" resultType="accounts" parameterType="int">
+		select
+		* from accounts where accounts_num = #{accounts_num}
+	</select>
+
+	<select id="getMentees" resultType="accounts">
+		SELECT * FROM accounts where
+		mentor = 0 AND state = 2;
+	</select>
+
+	<select id="getMentors" resultType="accounts">
+		SELECT * FROM accounts where
+		mentor = 1 AND state = 2;
+	</select>
+	<select id="login" resultType="accounts" parameterType="accounts">
+		select *
+		from accounts where email = #{email} and password = ${password}
+	</select>
+</mapper>

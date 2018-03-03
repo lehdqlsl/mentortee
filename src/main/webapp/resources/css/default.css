@@ -1,0 +1,88 @@
+@charset "euc-kr";
+
+/************************************************************************
+ * ÆÄÀÏ¸í    : default.css
+ * ¼³¸í       : »çÀÌÆ® ±âº» css
+ * ÀÛ¼ºÀÚ    : ÀÓÃ¢Áø
+ * ÀÛ¼ºÀÏ    : 2008.05.19
+************************************************************************/
+
+/*common*/
+img{border:0}
+*{margin:0;padding:0;}
+body{background-color:#fff;}
+body, td, th, dt, dl, div, h1, h2, h3, h4, h5, h6 {font-family:µ¸¿ò, Dotum, AppleGothic, Sans-serif;font-size:12px;color:#545454; }
+table { border-collapse: collapse; }
+
+li{list-style:none}
+hr{display:none}
+em{font-style:normal}
+th{text-align:left;font-weight:normal;}
+
+.u, a.u:link, a.u:visited, a.u:hover, a.u:active{text-decoration:underline}
+.nu, a.nu:link, a.nu:visited, a.nu:hover, a.nu:active{text-decoration:none}
+.b, a.b:link, a.b:visited, a.b:hover, a.b:active{font-weight:bold}
+.nor{font-weight:normal !important}
+
+.ls{letter-spacing:-1px} 
+.ls0{letter-spacing:0px}
+
+/*Link Css */
+a:link,  a:visited,  a:active {color:#545454; text-decoration:none}
+a:hover{color:#545454; text-decoration:underline}
+
+/*space*/
+.space01{padding:0 0 10px 0;clear:both}
+
+/*line-height*/
+.ln11{line-height:1.1em}
+.ln12{line-height:1.2em}
+.ln13{line-height:1.3em}
+.ln14{line-height:1.4em}
+.ln15{line-height:1.5em}
+.ln19{line-height:1.9em}
+
+/*Text*/
+.fs9 {font-size:9px !important}
+.fs10 {font-size:10px !important}
+.fs11 {font-size:11px !important}
+.fs12 {font-size:12px !important}
+.fs13 {font-size:13px !important}
+.fs14 {font-size:14px !important}
+
+input { margin:0; padding:2px; font-family:µ¸¿ò, Dotum, AppleGothic, Sans-serif;font-size:12px;color:#000; }
+fieldset { border: none; }
+img, input { vertical-align: middle;  }
+.noline { font-size: 1px; line-height: 1px; }
+p.clear { clear: both; }
+
+/*link*/
+.bl01, a.bl01:link, a.bl01:visited, a.bl01:hover, a.bl01:active{color: #000;} /*black*/
+.bu01, a.bu01:link, a.bu01:visited, a.bu01:hover, a.bu01:active{color: #0296CD;} /*blue*/
+
+
+/*footer*/
+.gray013
+       {font-family:µ¸¿ò; font-size:11px; color:#666666; letter-spacing:-1px;} 
+a:link.gray013
+       {font-family:µ¸¿ò; font-size:11px; color:#666666; text-decoration:none; letter-spacing:-1px;} 
+a:visited.gray013
+       {font-family:µ¸¿ò; font-size:11px; color:#666666; text-decoration:none; letter-spacing:-1px;} 
+a:hover.gray013
+       {font-family:µ¸¿ò; font-size:11px; color:#666666; text-decoration:underline; letter-spacing:-1px;}	
+
+.gray014
+       {font-family:µ¸¿ò; font-size:11px; color:#0296CD; letter-spacing:-1px;} 
+a:link.gray014
+       {font-family:µ¸¿ò; font-size:11px; color:#0296CD; text-decoration:none; letter-spacing:-1px;} 
+a:visited.gray014
+       {font-family:µ¸¿ò; font-size:11px; color:#0296CD; text-decoration:none; letter-spacing:-1px;} 
+a:hover.gray014
+       {font-family:µ¸¿ò; font-size:11px; color:#0296CD; text-decoration:underline; letter-spacing:-1px;}
+
+.gray015 {font-family:µ¸¿ò; font-size:11px; color:#666666; letter-spacing:-1px;}
+
+/*ÆË¾÷¿¡ ¿Å°Ü³õÀ¸¼¼¿ä*/
+.betatest_end{padding:0 0 13px 0}
+.betatest_end dt{text-align:center;padding:36px 0 24px 0}
+.betatest_end dd{text-align:center;line-height:1.5em}
