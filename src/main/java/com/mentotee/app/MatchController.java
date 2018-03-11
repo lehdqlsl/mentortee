@@ -4,6 +4,9 @@ import com.mentotee.app.service.AccountsService;
 import com.mentotee.app.service.MatchService;
 import com.mentotee.app.vo.AccountsVO;
 import com.mentotee.app.vo.MatchingsVO;
+
+import util.PushService;
+
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,39 +32,29 @@ public class MatchController {
 	@Autowired
 	private AccountsService accounts_service;
 
+	// ë§¤ì¹­ ì‹ ì²­
 	@RequestMapping(value = { "/matching" }, method = { org.springframework.web.bind.annotation.RequestMethod.POST })
 	public HashMap<String, Object> matching(@RequestBody Map<String, Object> data) {
-		HashMap<String, Object> map = new HashMap<String,Object>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 
 		int mentor_id = ((Integer) data.get("mentor_number")).intValue();
 		int mentee_id = ((Integer) data.get("mentee_number")).intValue();
 
 		MatchingsVO vo = new MatchingsVO(0, mentor_id, mentee_id, 1, null, null, null, null);
-		
+
 		try {
 			int n = this.match_service.insert(vo);
 			if (n > 0) {
-				String baseUrl = "https://android.googleapis.com/gcm/send";
 
 				AccountsVO avo = this.accounts_service.getInfo(mentor_id);
 				AccountsVO mvo = this.accounts_service.getInfo(mentee_id);
-				RestTemplate restTemplate = new RestTemplate();
 
-				JSONObject parameters = new JSONObject();
 				JSONObject param = new JSONObject();
 				param.put("type", Integer.valueOf(1));
-				param.put("title", "¸àÅä ½ÅÃ»");
-				param.put("message", mvo.getName() + "´ÔÀ¸·Î ºÎÅÍ ¸àÅä ½ÅÃ»ÀÌ ¿Ô½À´Ï´Ù.");
-				parameters.put("to", avo.getToken());
-				parameters.put("content_available", Boolean.valueOf(true));
-				parameters.put("priority", "high");
-				parameters.put("data", param);
+				param.put("title", "ë§¤ì¹­ ì‹ ì²­");
+				param.put("message", mvo.getName() + "ë‹˜ê»˜ì„œ ë§¨í† ì‹ ì²­ì„ í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
-				restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
-				HttpEntity<?> requestEntity = apiClientHttpEntity("json", parameters.toString());
-				ResponseEntity<String> responseEntity = restTemplate.exchange(baseUrl, HttpMethod.POST, requestEntity,
-						String.class, new Object[0]);
-
+				PushService.SendPush(param, avo.getToken());
 				map.put("responseCode", Integer.valueOf(200));
 			}
 		} catch (Exception e) {
@@ -82,32 +75,18 @@ public class MatchController {
 		try {
 			int n = this.match_service.update(vo);
 			if (n > 0) {
-				String baseUrl = "https://android.googleapis.com/gcm/send";
-
 				AccountsVO mentee = this.accounts_service.getInfo(mentee_id);
 				AccountsVO mentor = this.accounts_service.getInfo(mentor_id);
 
-				RestTemplate restTemplate = new RestTemplate();
-
-				JSONObject parameters = new JSONObject();
 				JSONObject param = new JSONObject();
 				param.put("type", Integer.valueOf(1));
-				param.put("title", "¸àÅä ½ÅÃ»");
+				param.put("title", "ë©˜í†  ì²´ê²°");
 				if (state == 2) {
-					param.put("message", mentor.getName() + "´Ô°úÀÇ ¸àÅä ½ÅÃ»ÀÌ Ã¼°áµÇ¾ú½À´Ï´Ù.");
+					param.put("message", mentor.getName() + "ë‹˜ê³¼ì˜ ë©˜í†  ì‹ ì²­ì´ ì²´ê²°ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				} else {
-					param.put("message", mentor.getName() + "´ÔÀ¸·Î ºÎÅÍ ¸àÅä ½ÅÃ»ÀÌ °ÅÀıµÇ¾ú½À´Ï´Ù.");
+					param.put("message", mentor.getName() + "ë‹˜ì´ ë©˜í†  ì‹ ì²­ì„ ê±°ì ˆí•˜ì˜€ìŠµë‹ˆë‹¤.");
 				}
-				parameters.put("to", mentee.getToken());
-				parameters.put("content_available", Boolean.valueOf(true));
-				parameters.put("priority", "high");
-				parameters.put("data", param);
-
-				restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
-				HttpEntity<?> requestEntity = apiClientHttpEntity("json", parameters.toString());
-				ResponseEntity<String> responseEntity = restTemplate.exchange(baseUrl, HttpMethod.POST, requestEntity,
-						String.class, new Object[0]);
-
+				PushService.SendPush(param, mentee.getToken());
 				map.put("responseCode", Integer.valueOf(200));
 			}
 		} catch (Exception e) {
@@ -148,10 +127,4 @@ public class MatchController {
 		return map;
 	}
 
-	private HttpEntity<?> apiClientHttpEntity(String appType, String params) {
-		HttpHeaders requestHeaders = new HttpHeaders();
-		requestHeaders.set("Authorization", "key=AIzaSyCuJZDLGW4xr6d-gVNICgx_wf9dfUAHLoo");
-		requestHeaders.set("Content-Type", "application/" + appType);
-		return new HttpEntity(params, requestHeaders);
-	}
 }
