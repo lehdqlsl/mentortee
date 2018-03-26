@@ -50,13 +50,40 @@ body {font-size:16px;}
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>Admin 페이지</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>페이지</b></h1>
+    <h1 class="w3-jumbo"><b>Magazine</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>매거진 목록</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
   </div>
   
  <div class="content table-responsive table-full-width">
-                     </div>
+                        <table class="w3-table" >
+                            <tr class="w3-red">
+                                <th>게시글 번호</th>
+                            	<th>이메일</th>
+                            	<th>제목</th>
+                            	<th>등록날짜</th>
+                            	<th>승인</th>
+                            </tr>
+                            <tbody>
+                            <c:forEach var="mvo" items="${mlist }">
+                                <tr>
+                                	<td>${mvo.b_num }</td>
+                                	<td>${mvo.email }</td>
+                                	<td>${mvo.title }</td>
+                                	<td>${mvo.regdate }</td>
+                                	<td class="auth" b_num="${mvo.b_num }">
+                                	<button class="w3-btn w3-red" class="btn_auth" b_num="${mvo.b_num }">승인</button>
+                                	<c:if test="${mvo.auth != false}">
+                                		<script type="text/javascript">
+                                			$("#btn_auth").prop("disabled",true);
+                                		</script>
+                                	</c:if>
+                                	</td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
 
 <!-- End page content -->
 </div>

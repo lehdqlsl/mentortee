@@ -32,7 +32,7 @@ public class PageController {
 	public String home1(Locale locale, Model model) {
 		return "home";
 	}
-	
+
 	@RequestMapping(value = "/admin", method = { org.springframework.web.bind.annotation.RequestMethod.GET })
 	public String admin(Locale locale, Model model) {
 		return "admin_login";
@@ -50,8 +50,12 @@ public class PageController {
 		String contents = request.getParameter("ir1");
 
 		int n = magazine_service.insert(new MagazineVO(0, Integer.parseInt(a_num), title, contents, false, null));
-
-		return "redirect:/web/login";
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") != null) {
+			return "main";
+		} else {
+			return "home";
+		}
 	}
 
 	@RequestMapping(value = "/web/login", method = RequestMethod.GET)
@@ -113,11 +117,41 @@ public class PageController {
 
 		}
 	}
-	
+
 	@RequestMapping(value = "/web/admin/login", method = RequestMethod.POST)
 	public String admin_login(HttpServletRequest request, Model model) {
-		List<MagazineVO> list = magazine_service.getList();
-		model.addAttribute("mlist", list);
 		return "admin";
+	}
+
+	@RequestMapping(value = "/web/admin/auth", method = RequestMethod.POST)
+	public String admin_auth(HttpServletRequest request, Model model) {
+
+		String b_num = request.getParameter("b_num");
+		
+		int n = magazine_service.auth(b_num);
+
+		return "redirect:/magazine";
+	}
+
+	@RequestMapping(value = "/nomagazine", method = RequestMethod.GET)
+	public String nomagazine(HttpServletRequest request, Model model) {
+
+		/*
+		 * 0 : 인증 안된 매거진 1 : 인증 된 매거진
+		 */
+		List<MagazineVO> list = magazine_service.getList(0);
+		model.addAttribute("mlist", list);
+		return "nomagazine";
+	}
+
+	@RequestMapping(value = "/magazine", method = RequestMethod.GET)
+	public String magazine(HttpServletRequest request, Model model) {
+
+		/*
+		 * 0 : 인증 안된 매거진 1 : 인증 된 매거진
+		 */
+		List<MagazineVO> list = magazine_service.getList(1);
+		model.addAttribute("mlist", list);
+		return "magazine";
 	}
 }

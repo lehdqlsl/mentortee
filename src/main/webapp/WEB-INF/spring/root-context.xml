@@ -15,10 +15,10 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-		<property name="url"
-			value="jdbc:mysql://192.168.0.5:3306/mentotee?useSSL=false&amp;serverTimezone=UTC"></property>
-		<!-- <property name="username" value="root"></property>
-		<property name="password" value="Mentotee79!"></property> -->
+		<!-- <property name="url" value="jdbc:mysql://52.38.249.27:3306/mentotee?useSSL=false&amp;serverTimezone=UTC"></property> -->
+		<property name="url" value="jdbc:mysql://localhost:3306/mentotee?useSSL=false&amp;serverTimezone=UTC"></property>
+		<!-- <property name="username" value="root"></property>-->
+		<!-- <property name="password" value="Mentotee79!"></property> -->
 		<property name="username" value="scott"></property>
 		<property name="password" value="tiger"></property>
 	</bean>

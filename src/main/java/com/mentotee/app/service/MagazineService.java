@@ -17,7 +17,15 @@ public class MagazineService {
 		return dao.insert(vo);
 	}
 	
-	public List<MagazineVO> getList(){
-		return dao.getList();
+	public List<MagazineVO> getList(int type){
+		if(type == 0) {
+			return dao.getNoList();	
+		}else {
+			return dao.getList();
+		}
+	}
+
+	public int auth(String b_num) {
+		return dao.setAuth(b_num);
 	}
 }

@@ -22,7 +22,15 @@ public class MagazineDAO {
 		return this.sqlSession.insert(NAMESPACE + ".insert", vo);
 	}
 
-	public List<MagazineVO> getList(){
-		return sqlSession.selectList(NAMESPACE+".getList");
+	public List<MagazineVO> getList() {
+		return sqlSession.selectList(NAMESPACE + ".getList");
+	}
+
+	public List<MagazineVO> getNoList() {
+		return sqlSession.selectList(NAMESPACE + ".getNoList");
+	}
+
+	public int setAuth(String b_num) {
+		return sqlSession.update(NAMESPACE + ".setAuth", b_num);
 	}
 }
