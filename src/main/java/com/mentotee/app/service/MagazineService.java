@@ -28,4 +28,8 @@ public class MagazineService {
 	public int auth(String b_num) {
 		return dao.setAuth(b_num);
 	}
+	
+	public MagazineVO getMagazine(String b_num) {
+		return dao.getMagazine(b_num);
+	}
 }

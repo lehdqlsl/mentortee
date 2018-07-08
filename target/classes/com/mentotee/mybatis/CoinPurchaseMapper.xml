@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mentotee.mybatis.CoinPurchaseMapper">
+
+	
+	<insert id="insert" parameterType="coinPurchase">
+		insert into coin_purchase_history (accounts_num, coin, reg_date) VALUES (#{accounts_num},#{coin},now())
+	</insert>
+
+	<select id="getHistory" resultType="coinPurchase" parameterType="int">
+		SELECT * FROM coin_purchase_history where accounts_num = #{accounts_num} order by reg_date desc
+	</select>
+	
+
+</mapper>

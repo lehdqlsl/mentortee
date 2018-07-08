@@ -1,0 +1,254 @@
+@charset "euc-kr";
+
+/* common */
+body, ul, ol, li, dt, dl, dd, div, h1, h2, h3, h4, h5, h6, p, form, fieldset, blockquote, iframe, input, object, table, tr, th, td{margin:0;padding:0}
+
+/* chat emoticon */
+#emoticonBox {position:relative;overflow:hidden;width:246px;height:292px;border:1px solid #898687;background:#fff}
+#emoticonBox .clear {clear:both;}
+#emoticonBox img {border:none;}
+#emoticonBox h1 {height:30px;line-height:32px;text-align:center;border-bottom:1px solid #d7d7d7;color:#434343;font-weight:bold;font-size:12px}
+#emoticonBox .scroll_area {overflow-y:scroll;overflow-x:hidden;height:260px;padding:0 0 0 12px}
+#emoticonBox .scroll_area span{float:left;overflow:hidden;width:30px;height:30px;margin:12px 5px 0 0}
+#emoticonBox .scroll_area span a {display:block;width:30px;height:30px;}
+#emoticonBox .scroll_area span a:hover{background:url(//www.afreecatv.com/images/chat/emoticon/bg_box.gif) no-repeat}
+#emoticonBox .scroll_area span a img{width:26px;height:26px;vertical-align:top;margin:2px 0 0 2px;}
+#emoticonBox .btn_close {position:absolute;top:3px;right:0;}
+#emoticonBox .btn_close a {display:block;width:23px;height:23px;text-indent:-9999px;}
+
+
+.wrap_lv {display:none; position:absolute; left:-1px; top:24px; z-index:99; width:300px; background:#fff;}
+.list_viewer {width:298px;height:222px;padding:1px;overflow-y:auto;border:1px solid #a2a2a2;border-bottom:none;position:relative;}
+.wrap_lv .vopen {height:553px;}
+.dashboard_mode .wrap_lv .vopen { height: 466px; }
+.list_viewer h3 {padding:5px 0 2px 12px;margin:0 0 1px 0;font-size:11px;color:#1e62d4;font-weight:normal;line-height:14px;background:#eaf0f8;}
+.list_viewer h3 strong {color:#ff4800;font-size:11px;}
+.list_viewer .bj_info {position:relative;height:19px;padding:2px 0;margin:0 0 1px 0;}
+.list_viewer .bj_info:after {display:block;clear:both;content:"";}
+.list_viewer .bj_info a {display:block;height:19px;padding:0 0 0 45px; color:#767676;font-size:11px; background:url(//res.afreecatv.com/images/new_app/chat/ic_chat_v2.gif) no-repeat;line-height:1.2em;text-decoration:none;}
+.list_viewer .bj_info .layer_context a {display:block;height:15px;padding:4px 0 0 6px;font-size:11px; letter-spacing:-1px; font-family:dotum; color:#3c3c3c;background:none;line-height:14px;}
+
+.smode .wrap_lv {left:0; background:#18181e;}
+.smode .list_viewer {width:297px;border:1px solid #38383e;border-right:none; border-bottom:none;}
+.smode .list_viewer h3 {color:#ff4800;background:#0e0e12;}
+
+.list_viewer .bj_info a span {float:left;display:block;width:97px;padding:2px 0 0 0;font-family:tahoma;font-size:11px;vertical-align:top;}
+.list_viewer .bj_info a em {float:left;display:block;padding:5px 0 0 0;font-size:11px;color:#3c3c3c;vertical-align:top;}
+.smode .list_viewer .bj_info a em {color:#717683;}
+/* .list_viewer .bj_info a:hover {background-color:#ececec} */ /* 2015-06-09 주석처리 */
+
+.list_viewer ul {}
+.list_viewer li {position:relative;height:19px;margin:0 0 1px 0; padding:1px 0;}
+.list_viewer li:after {display:block;clear:both;content:"";}
+.list_viewer li a {display:block;position:relative;height:19px;padding:0 0 0 45px;color:#767676;font-size:11px;background:url(//res.afreecatv.com/images/new_app/chat/ic_chat_v2.gif) no-repeat;line-height:1.2em;text-decoration:none;}
+.list_viewer li a span {float:left;display:block;width:97px;padding:2px 0 0 0;font-family:tahoma;font-size:11px;vertical-align:top;}
+.list_viewer li a em {float:left;display:block;padding:5px 0 0 0;font-size:11px;color:#3c3c3c;vertical-align:top;}
+/* .list_viewer li a:hover {background-color:#ececec} */ /* 2015-06-09 주석처리 */
+
+.smode .list_viewer li a {}
+.smode .list_viewer li a em {color:#717683;}
+
+.toggle_op {position:relative; z-index:99999;}
+.wrap_lv .btn_toggle_op{width:100%;height:8px;display:block;padding:6px 0;border:1px solid #a2a2a2;border-top:1px solid #f2f2f2; text-decoration:none;}
+.wrap_lv .btn_toggle_op span {display:block;width:12px;height:8px;margin:0 auto;overflow:hidden;text-indent:-9999px;background:url(//res.afreecatv.com/images/flashplayer/icon_toggle.gif) no-repeat -12px -8px;}
+.wrap_lv .btn_toggle_op:hover span {background-position:0 -8px;}
+
+.smode .wrap_lv .btn_toggle_op{border:1px solid #38383e;}
+.smode .wrap_lv .btn_toggle_op span {background:url(//res.afreecatv.com/images/flashplayer/icon_toggle_smode.png) no-repeat -12px -8px;}
+
+.toggle_cs {display:none; position:relative; z-index:111;}
+.wrap_lv .btn_toggle_cs{width:100%;height:8px;display:block;padding:6px 0;border:1px solid #a2a2a2;border-top:1px solid #f2f2f2;}
+.wrap_lv .btn_toggle_cs span {display:block;width:12px;height:8px;margin:0 auto;overflow:hidden;text-indent:-9999px;background:url(//res.afreecatv.com/images/flashplayer/icon_toggle.gif) no-repeat -12px 0;}
+.wrap_lv .btn_toggle_cs:hover span {background-position: 0 0;}
+
+.smode .wrap_lv .btn_toggle_cs{border:1px solid #38383e;}
+.smode .wrap_lv .btn_toggle_cs span {background:url(//res.afreecatv.com/images/flashplayer/icon_toggle_smode.png) no-repeat -12px 0;}
+
+.layer_context {display:none; position:absolute; left:45px;top:17px;z-index:22222; width:124px;padding:2px;border:1px solid #9d9da1;background:#fff; }
+.chat_area .layer_context {left:20px;}
+.layer_context strong.nick {display:block;padding:5px 0 3px 0;line-height:14px;font-size:11px;margin:0;vertical-align:top;color:#328fde !important;font-weight:bold;text-align:center;border-bottom:1px solid #ccc;}
+.layer_context a.nick { position: relative; display: block;border-bottom:1px solid #ccc; padding: 0 !important; height: auto !important; background: none !important;}
+.layer_context a.nick span { overflow: hidden; float: none; display:block; margin-right: 18px; padding:5px 0 3px 6px;line-height:14px;font-size:11px;vertical-align:top;color:#328fde !important; white-space: nowrap; font-weight:bold;text-align:left;}
+.layer_context a.nick em { position: absolute; top: 5px; right: 2px; width: 13px; height: 13px; padding: 0; background: url('//res.afreecatv.com/images/new_app/chat/ic_madang.png') no-repeat right center;; }
+/*.layer_context  {  }*/
+.layer_context ul {margin:2px 0 0;padding:0;border-top:1px solid #ccc;}
+.layer_context ul.top {border-top:none;}
+.layer_context ul li{margin:2px 0 0;}
+.layer_context ul li a{display:block;height:15px;padding:4px 0 0 6px;font-size:11px; letter-spacing:-1px; font-family:dotum; color:#3c3c3c;background:none;line-height:14px; }
+/* .layer_context ul li a:hover{background:#e2e2e2; text-decoration:none;} */ /* 2015-06-09 주석처리 */
+.layer_context ul li.off {height:15px; font-size:11px; letter-spacing:-1px; font-family:dotum; padding:4px 0 0 6px; margin:2px 0 0; color:#3c3c3c;background:none;line-height:14px; color:#a0a0a0;}
+/* .layer_context ul li.off:hover {background:#e2e2e2;} */ /* 2015-06-09 주석처리 */
+.smode .layer_context {border:1px solid #44454b;background:#18191e; }
+.smode .layer_context .nick {border-bottom:1px solid #23242a;}
+.smode .layer_context ul {border-top:1px solid #23242a;}
+.smode .layer_context ul li a{color:#686e7c !important;}
+.smode .layer_context ul li.off {color:#686e7c;}
+
+.layer_context_list {display:none; position:absolute;left:0;top:15px;width:128px; border:1px solid #b4b4b4; border-radius:4px; background:#fff;z-index:99999;}
+.chat_area .layer_context_list {left:20px;}
+.layer_context_list .nick {display:block;padding:7px 0 0; height:14px;font-size:12px;margin:0;vertical-align:top;color:#328fde;font-weight:bold;text-align:center;}
+.layer_context_list ul {margin:2px 0 0;padding:0;}
+.layer_context_list ul li{margin:2px 0 0; width:100% !important; height:inherit !important; min-height:inherit !important; _min-height:20px; padding:0 !important; border-top:1px solid #ccc; border-bottom:none;}
+.layer_context_list ul li a{display:block; height:13px;padding:6px 0 0 6px; margin:2px 0 0 ; font-size:11px; letter-spacing:-1px; font-family:dotum; color:#3c3c3c !important; background:none;line-height:14px; text-decoration:none;}
+.layer_context_list ul li a:hover{background:#e2e2e2;}
+.layer_context_list ul li img {vertical-align:middle; margin:-5px 0 0;}
+.layer_context_list dl {}
+.layer_context_list dt {padding:6px 2px 0 7px !important; height:17px !important; font-size:12px; line-height:1em !important; font-family:arial; color:#333; font-weight:bold; border-bottom:1px solid #e8e8e8;}
+.layer_context_list dd.fav {height:22px !important; padding:11px 0 0 28px; letter-spacing:-1px; line-height:1.3em; background:url('//res.afreecatv.com/images/flashplayer/icon_context_fav.gif') no-repeat 7px 8px;}
+.layer_context_list dd.fav a {color:#333 !important; font-size:12px;}
+.layer_context_list dd.fav a:hover {color:#000 !important; text-decoration:none;}
+.layer_context_list .bjhome a {position:absolute; right:0; top:0; z-index:11; overflow:hidden; text-indent:-1111px; display:block; width:100%; height:23px; background:url('//res.afreecatv.com/images/flashplayer/icon_context_bjhome.gif') no-repeat right 4px;}
+
+/* layer_context_test */
+.layer_context_test {position:fixed; left:auto; right:317px;top:82px; width:217px; z-index:9999999;}
+.layer_context_test a {text-decoration:none;}
+@media all and (max-width:955px) {
+	.layer_context_test {right:16px;}
+}
+@media all and (max-width:655px) {
+	.layer_context_test {display:none;}
+}
+
+.tooltip {display:none;padding:0 0 3px 0;background:url(//res.afreecatv.com/images/flashplayer/obj_tooltip.gif) no-repeat center bottom;}
+.t_big {display:none;position:absolute;left:123px;bottom:18px}
+.t_small {display:none;position:absolute;left:123px;bottom:18px}
+.tooltip .tipcont {padding:5px 7px 2px 7px;color:#fff;font-size:11px;line-height:14px;letter-spacing:-1px;text-align:center;background:#555;border-radius:2px;}
+.wrap_lv .kko {display:block;width:8px;height:5px;position:absolute;right:53px;top:-4px;background:url(//res.afreecatv.com/images/flashplayer/icon_kko.gif) no-repeat 0 0;}
+.smode .wrap_lv .kko {background:url(//res.afreecatv.com/images/flashplayer/icon_kko_smode.gif) no-repeat 0 0;}
+
+/* 남자 icon */
+.list_viewer .man a {background-position:12px 2px}/* BJ */
+.list_viewer .manager_m a {background-position:12px -34px} /* 매니저 */
+.list_viewer .topfan_m a{background-position:12px -69px} /* 열혈팬 */
+.list_viewer .fan_m a{background-position:12px -103px} /* 팬클럽 */ /* 2015-08-13 !important 삭제 */
+.list_viewer .user_m a{background-position:12px -138px} /* 일반 */
+.list_viewer .supporter_m a{background-position:12px -138px} /* 일반 */
+.list_viewer .out_m a{background-position:12px -174px} /* 퇴장 */
+.list_viewer .user_mb a{background-position:12px -208px} /* 블라인드 */
+.list_viewer .supporter_mb a{background-position:12px -208px} /* 블라인드 */
+.list_viewer .user_mw a{background-position:12px -244px} /* 벙어리 */
+.list_viewer .supporter_mw a{background-position:12px -244px} /* 벙어리 */
+.list_viewer .user_gm a{background-position:12px -770px}/* 글로벌남자 */
+.list_viewer .supporter_gm a{background-position:12px -770px}/* 글로벌남자 */
+.list_viewer .man_g a{background-position:12px -846px}/* 글로벌남자 BJ */
+.list_viewer .gudok_m a{background-position:12px -1021px}/*구독자*/
+
+/* 여자 icon */
+.list_viewer .woman a{background-position:12px -279px} /* BJ */
+.list_viewer .manager_w a{background-position:12px -314px} /* 매니저 */
+.list_viewer .topfan_w a{background-position:12px -349px} /* 열혈팬 */
+.list_viewer .fan_w a{background-position:12px -384px} /* 팬클럽 */
+.list_viewer .user_w a{background-position:12px -419px} /* 일반 */
+.list_viewer .supporter_w a{background-position:12px -419px} /* 일반 */
+.list_viewer .out_w a{background-position:12px -454px} /* 퇴장 */
+.list_viewer .user_wb a{background-position:12px -489px} /* 블라인드 */
+.list_viewer .supporter_wb a{background-position:12px -489px} /* 블라인드 */
+.list_viewer .user_ww a{background-position:12px -524px} /* 벙어리 */
+.list_viewer .supporter_ww a{background-position:12px -524px} /* 벙어리 */
+.list_viewer .user_gw a{background-position:12px -807px}/* 글로벌여자 */
+.list_viewer .supporter_gw a{background-position:12px -807px}/* 글로벌여자 */
+.list_viewer .woman_g a{background-position:12px -884px}/* 글로벌여자 BJ */
+.list_viewer .gudok_w a{background-position:12px -1070px}/*구독자*/
+
+/* 모바일 icon */
+.list_viewer .phone a{background-position: 12px -628px}
+.list_viewer .global_phone a{background-position: 12px -925px}
+/* 안내 icon */
+.list_viewer .ear a{background-position:12px -591px;font-weight:normal !important}
+
+
+/* 설정 */
+.wrap_st {display:none; position:absolute; right:-1px; top:24px; z-index:111; background:#fff;}
+.wrap_st .list_setting {width:129px;padding:1px;border:1px solid #959595;}
+.wrap_st .list_setting .list_st1 {padding:2px 0 0 0;margin:0 0 1px 0;border-bottom:1px solid #d9d9d9}
+.wrap_st .list_setting .list_st1 li {padding:5px 0 5px 7px;font-size:11px;line-height:14px;}
+.wrap_st .list_setting .list_st1 li input {display:inline-block;vertical-align:middle;margin-top:-3px;line-height:14px;}
+.wrap_st .list_setting .list_st1 li label {font-size:11px;color:#666;vertical-align:middle;line-height:14px;}
+.wrap_st .list_setting .list_st2 {}
+.wrap_st .list_setting .list_st2 li {margin:0 0 1px 0;}
+.wrap_st .list_setting .list_st2 li a {display:block;padding:8px 8px 4px 8px; font-size:11px;line-height:14px;text-decoration:none;}
+.wrap_st .list_setting .list_st2 li a:hover {text-decoration:underline;} /* 2015-06-09 추가 */
+/* .wrap_st .list_setting .list_st2 li a:hover {background-color:#ececec} */ /* 2015-06-09 주석처리 */
+.wrap_st .kko {display:block;width:8px;height:5px;position:absolute;left:92px;top:-4px;background:url(//res.afreecatv.com/images/flashplayer/icon_kko.gif) no-repeat 0 0;}
+.smode .wrap_st {background:#18181e;}
+.smode .wrap_st .list_setting {border:1px solid #44454b;}
+.smode .wrap_st .list_setting .list_st1 {border-bottom:1px solid #2a2b30;}
+.smode .wrap_st .list_setting .list_st1 li input {background:#727275; border:1px solid #38383e;}
+.smode .wrap_st .list_setting .list_st1 li label {color:#686e7c;}
+.smode .wrap_st .kko {background:url(//res.afreecatv.com/images/flashplayer/icon_kko_smode.gif) no-repeat 0 0;}
+
+
+/* 130827 채팅 이모티콘 */
+.emoti_wrap * {margin:0;padding:0; }
+.emoti_wrap {display:none; position:absolute; left:-1px; bottom:122px; z-index:99; width:238px; text-align:left;}
+.emoti_wrap img { border:none; }
+.emoti_wrap .emoticon {width:186px;height:186px;position:relative;border:1px solid #969696; background:#fff;}
+.emoti_wrap .emoticon h1{
+	height:29px;font-weight:bold;color:#3d82f6;font-family:굴림;font-size:12px;letter-spacing:-1px;/*padding:6px 0 0 9px;*/
+	}
+.emoti_wrap .emoticon h1 span{display:block;margin-left:10px;padding-top:7px}
+.emoti_wrap .emoticon a.btn_close{
+	display:block;text-indent:-9999px;overflow:hidden;width:11px;height:11px;
+	background:url(//res.afreecatv.com/images/flashplayer/btn_close_emo.gif) 1px 1px no-repeat;position:absolute;top:7px;right:9px;
+	}
+.emoti_wrap .con{width:174px;overflow:hidden;margin-left:7px;}
+.emoti_wrap .con li{float:left;list-style:none !important}
+.emoti_wrap .con li a{overflow:hidden;display:block;width:29px;height:27px; cursor:pointer;}
+.emoti_wrap .con li a:hover{background:url(//www.afreecatv.com/images/common/emoticon/box_line.gif) 0 0 no-repeat}
+.emoti_wrap .con li a img{margin:3px 0 0 3px;display:inline}
+.emoti_wrap .emo{height:137px}
+
+.emoti_wrap .emoticon .pg{text-align:center;padding:0 0 0 0;border-top:1px solid #d0d0d0;width:164px;margin:0 0 0 11px;height:19px;overflow:hidden}
+.emoti_wrap .emoticon .pg a{margin:0 0 0 0;display:inline}
+
+.emoti_wrap .emoticon .pg img{display:inline;margin:0 6px 0 6px;vertical-align:middle}
+.emoti_wrap .emoticon .pg img.bar{margin:0 0 0 0 !important;}
+.emoti_wrap .kko {display:block;width:7px;height:5px;position:absolute;left:17px;bottom:-4px;background:url(//res.afreecatv.com/images/flashplayer/icon_kko_b.gif) no-repeat 0 0;}
+.layer_s_chat .kko {display:block;width:7px;height:5px;position:absolute;left:17px;bottom:-5px;background:url(//res.afreecatv.com/images/flashplayer/icon_kko_b.gif) no-repeat 0 0;}
+
+/* 150907 채팅 이모티콘 위치 */
+#emoticonArea {display:none; position:absolute;  z-index:9999; text-align:left; padding:0 0 12px;}
+#emoticonArea { left:-248px; bottom:0; }
+/* 스크린모드 smode 전용 2015-11-11 추가 */
+.smode .chat_area .layer_context a {color:#686e7c !important;}
+.smode .chat_area .vote_txt {background:#313237; color:#888;}
+
+.smode .chat_area dl dd {color:#d3d3d3;}
+.smode .chat_area .s_chat dl dd {color:#d2d2d2 !important}
+
+.smode .chat_area .illegal dt {color:#d50002;}
+.smode .chat_area .illegal dd .box_o {border:1px solid #42444e;}
+.smode .chat_area .illegal dd .box_i {background:#2b2d32;}
+.smode .chat_area .illegal dd .box_i p {color:#d50002;}
+.smode .chat_area .box_o .ic_arw_sp {background:url('//res.afreecatv.com/images/flashplayer/ic_white_arw_smode.gif') no-repeat 0 0;}
+
+.smode #emoticonBox {border:1px solid #434448;background:#1e1f24;}
+.smode #emoticonBox h1 {color:#686e7c; border-bottom:1px solid #434448;}
+.smode #emoticonBox .btn_close a {background:url(//www.afreecatv.com/images/flashplayer/btn_close_emo_smode.gif) no-repeat 7px 7px;}
+
+.smode .chat_area .clan_top {border:1px solid #313237;background:#313237;}
+.smode .chat_area .clan_top .list_game li a {color:#888;}
+.smode .chat_area .hotclan,
+.smode .chat_area .hotclan a {color:#0197ff;}
+.smode .chat_area .clan_top .list_game {border-bottom:1px solid #2a2b30;}
+.smode .chat_area dl.social_list {border:1px solid #313237; background:#313237;}
+
+.smode .chat_area .ear_deny {color:#888; background:#313237;}
+.smode .chat_area .ear_deny a {color:#888;}
+
+.smode .chat_area .box_ice {background:#19364d;}
+.smode .chat_area .box_end {background:#2a2b30;}
+
+.smode .chat_area .ice,
+.smode .chat_area .ice span {color:#0197ff;}
+.smode .chat_area .txt_g span {color:#888;}
+
+.smode .chat_area span.user {color:#666}
+
+.smode .chat_area .s_chat dt a {color:#767676;}
+
+.smode .chat_area .balloon_area .bal_txt,
+.smode .chat_area .hballoon_area .bal_txt {color:#888;}
+
+.dashboard_mode .wrap_lv .kko { right: 35px; }
+.dashboard_mode .wrap_st .kko {left: 115px;}

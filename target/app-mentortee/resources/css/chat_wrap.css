@@ -1,0 +1,333 @@
+@charset "utf-8";
+@import url("//res.afreecatv.com/css/new_app/chat.css");
+
+/************************************************************************
+ * 파일명    : chat_wrap.css
+ * 작성자    : DK
+ * 작성일    : 2017.04.23
+ * 설명       :
+   채팅 활용도 증가로 인해  공통사용 가능한 별도 파일로 생성
+   /css/global/flashplayer/main.css 내부의 채팅역영 본 파일로 이동
+
+************************************************************************/
+ul,ol { list-style: none; }
+em { font-style: normal;}
+.blind { display: block; position: absolute; overflow: hidden; left: -9999px; width: 1px; height: 1px; font-size: 0; line-height: 0; text-indent: -9999px; }
+
+.chatbox {position:absolute; right:0; top:0; bottom:0; width:320px; background:#fff; min-height:517px;}
+.chatbox h2 {height:18px; padding:6px 0 0 8px; border-bottom:1px solid #e1e1e1; font-weight:bold; font-size:12px; color:#3d82f6;}
+
+.chatbox .chat_area {position:absolute; left:0; right:0; top:57px; bottom:117px; padding:0;overflow:auto; overflow-x:hidden;}
+
+.chatbox .setbox {position:absolute; right:0; top:0;}
+.chatbox .setbox .btnset li {float:left; position:relative;}
+.chatbox .setbox .btnset li a {display:block; width:24px; height:24px; overflow:hidden; text-indent:-1111px; background:url('//res.afreecatv.com/images/flashplayer/icon_v2.png') no-repeat 0 0;}
+.chatbox .setbox .btnset li.mchat a {width:26px; background-position:-78px -20px;}
+.chatbox .setbox .btnset li.mchat a:hover,
+.chatbox .setbox .btnset li.mchat a.on {background-position:-78px 5px;}
+.chatbox .setbox .btnset li.c-out a {width:11px; background-position:-146px -21px;margin:0 5px}
+.chatbox .setbox .btnset li.c-out a:hover,
+.chatbox .setbox .btnset li.c-out a.on {background-position:-146px 5px}
+.chatbox .setbox .btnset li.ice a.freeze {width:25px; background-position:-99px -21px;}
+.chatbox .setbox .btnset li.ice a.freeze:hover {background-position:-99px 4px;}
+.chatbox .setbox .btnset li.ice a.freeze.on {display:block;}
+.chatbox .setbox .btnset li.ice a.freeze.off {display:none;}
+.chatbox .setbox .btnset li.ice a.warm {display:none; width:25px; background-position:-119px -21px;}
+.chatbox .setbox .btnset li.ice a.warm:hover {background-position:-119px 4px;}
+.chatbox .setbox .btnset li.ice a.warm.on {display:block;}
+.chatbox .setbox .btnset li.ice a.warm.off {display:none;}
+.chatbox .setbox .btnset li.viewer a {width:28px; background-position:5px 5px;}
+.chatbox .setbox .btnset li.viewer a:hover {background-position:-19px 5px;}
+.chatbox .setbox .btnset li.viewer a.on {background-position:-43px 5px;}
+.chatbox .setbox .btnset li.set a {width:26px; background-position:4px -20px;}
+.chatbox .setbox .btnset li.set a:hover {background-position:-19px -20px;}
+.chatbox .setbox .btnset li.set a.on {background-position:-43px -20px;}
+.chatbox .setbox .btnset li.close a {width:20px; margin:0 3px 0 0; background-position:5px -40px;}
+.chatbox .btn_org {padding:0px 0 0 5px;font-size:11px;color:#676767;position:absolute;top:6px;left:37px;letter-spacing:-1px; background:url('//res.afreecatv.com/images/flashplayer/bul_bar.gif') 0 1px no-repeat;}
+.chatbox .btn_org:hover{color:#3d82f6}
+
+
+.chatbox.chatbox_add_idsearch .chat_area {top:50px;}
+.chatbox .idsearch {position:absolute; right:0; top:25px; width:100%; height:24px; border-bottom:1px solid #dadada;}
+.chatbox .idsearch:after {content:""; display:block; clear:both;}
+.chatbox .idsearch .input_text {float:left; margin:3px 0 0 5px; padding:3px 5px 0px; width:128px; height:13px; border:1px solid #dfdfdf; color:#666; font-size:11px;/* background:url('//res.afreecatv.com/images/flashplayer/txt_id.gif') no-repeat 5px 3px;*/}
+.chatbox .idsearch .sel {float:left; margin:0 2px 0 2px; position:relative; z-index:11;}
+.chatbox .idsearch .sel em a {display:block; font-size:11px; color:#888; letter-spacing:-1px; width:100px; height:12px; margin:3px 0 0; padding:4px 0 0 6px; border:1px solid #dfdfdf; background:#fff url('//res.afreecatv.com/images/flashplayer/icon_select_arrow.gif') no-repeat right 6px; text-decoration:none;}
+.chatbox .idsearch .sel ul {position:absolute; left:0; top:20px; display:non; border:1px solid #dfdfdf;}
+.chatbox .idsearch .sel li a {display:block; vertical-align:top;font-size:11px; color:#888; letter-spacing:-1px; width:100px; height:14px; padding:7px 0 0 6px; background:#fff; text-decoration:none;}
+.chatbox .idsearch .sel li a:hover {background:#f3f3f3;}
+.chatbox .idsearch a.btn_apply {float:left; display:block; width:36px; height:16px; margin:3px 0 0; overflow:hidden;background:#f0f0f0;border:1px solid #cfcfcf;color:#5f5f5f;font-size:11px;text-align:center;line-height:1.7em;border-radius:1px;text-decoration:none}
+
+
+/* 채팅 입력 영역 */
+.chatbox .actionbox {position:absolute; left:0px; right:0px; bottom:0; height:116px; z-index:90; border-top:1px solid #d8d8d8; background:#fff; }
+.chatbox .actionbox .ul1 {position:absolute; left:10px; top:11px;z-index:1}
+.chatbox .actionbox .ul1 li {float:left; position:relative; z-index: 1; display:inline-block; padding:0 7px 0 1px; background:url('//res.afreecatv.com/images/flashplayer/icon_sai.gif') no-repeat 0 2px;}
+.chatbox .actionbox .ul1 li.first {background:none;}
+.chatbox .actionbox .ul1 li.first a {position:relative;overflow:visible}
+.chatbox .actionbox .ul1 li a {display:block; overflow:hidden; font-size: 11px; text-indent:-9999px; text-decoration: none; background:url('//res.afreecatv.com/images/flashplayer/icon_v2.png') no-repeat 0 0;}
+.chatbox .actionbox .ul1 li.off a {cursor:default;}
+.chatbox .actionbox .ul1 li.emo { margin-top: -3px; }
+.chatbox .actionbox .ul1 li.emo a { width:15px; height:17px; background-position:-25px -70px; outline: none;}
+.chatbox .actionbox .ul1 li.emo.off a {background-position:0 -70px !important;}
+.chatbox .actionbox .ul1 li.emo a:hover {background-position:-75px -70px;}
+.chatbox .actionbox .ul1 li.emo a.on {background-position:-50px -70px;}
+
+.chatbox .actionbox .ul1 li.police a { overflow: visible; height: 14px; width: 15px; margin-left: 9px; background:url('//res.afreecatv.com/images/flashplayer/icon_v2.png') 0px -94px no-repeat; text-indent: -9999em; text-decoration:none}
+.chatbox .actionbox .ul1 li.police a em.txt{font-size:11px;color:#f13a29;display:inline-block;vertical-align:middle;margin:0 0 -3px 0}
+.chatbox .actionbox .ul1 li.police.off a { background:url('//res.afreecatv.com/images/flashplayer/icon_v2.png') -25px -94px no-repeat;color:#c7c7c7}
+.chatbox .actionbox .ul1 li.police.off a em.txt{color:#c7c7c7}
+
+.chatbox .actionbox .ul1 li.translation { z-index: 23; }
+.chatbox .actionbox .ul1 li.translation a { overflow:visible; position: relative; width: 15px; height: 14px; margin-left: 8px; background:url('//res.afreecatv.com/images/flashplayer/icon_v2.png') no-repeat -50px -94px;  }
+.chatbox .actionbox .ul1 li.translation.off a{; background:url('//res.afreecatv.com/images/flashplayer/icon_v2.png') no-repeat -75px -94px;}
+.chatbox .actionbox .ul1 li.translation em { top: -24px; }
+
+.chatbox .actionbox .ul1 li.first a .emo_new {position:absolute;top:8px;left:9px;display:block;width:9px;height:9px;text-indent:-9999px;background:url('//res.afreecatv.com/images/flashplayer/ic_em_new.png') no-repeat }
+.chatbox .actionbox .ul2 {position:absolute; right:10px; top:7px;}
+.chatbox .actionbox .ul2 li {float:left; position:relative;}
+.chatbox .actionbox .ul2 li a {display:block; width:24px; height:23px; overflow:hidden; text-indent:-1111px;  background:url('//res.afreecatv.com/images/flashplayer/icon_v2.png') no-repeat 0 0;}
+.chatbox .actionbox .ul2 li.off a {cursor:default;}
+.chatbox .actionbox .ul2 li.star.off a {background-position:-120px -115px;}
+.chatbox .actionbox .ul2 li.sticker.off a {background-position:-144px -115px;}
+.chatbox .actionbox .ul2 li.choco.off a {background-position:-168px -115px;}
+.chatbox .actionbox .ul2 li.hope.off a {background-position:-96px -115px;}
+.chatbox .actionbox .ul2 li.star a {background-position:0 -115px;}
+.chatbox .actionbox .ul2 li.sticker a {background-position:-24px -115px;}
+.chatbox .actionbox .ul2 li.choco a {background-position:-48px -115px;}
+.chatbox .actionbox .ul2 li.hope a {background-position:-72px -115px;}
+
+.chatbox .actionbox .chat_write {position:absolute; left:10px; top:35px; width:95%; height:67px; border:1px solid #c1c7ca; border-radius:2px;}
+.chatbox .actionbox .chat_write h3 {overflow:hidden;position:absolute;left:-10000px;top:0;width:0;height:0;font-size:0;line-height:0;}
+.chatbox .actionbox .chat_write .write_area {margin:5px; padding:5px; width:75%; height:57px; font-size:12px; line-height:1.3em; color:#5f5f5f; overflow:auto; border:none; background:#fff;
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
+	white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+}
+.chatbox .actionbox .chat_write .ad_toggle {display:none}
+.chatbox .actionbox .chat_write textarea {margin:5px; padding:5px; width:135px; height:57px; font-size:12px; color:#5f5f5f; overflow:auto; border:none; background:#fff;}
+.chatbox .actionbox .chat_write .btn_send {position:absolute; right:9px; top:9px; width:50px; height:47px; text-align:center; font-size:11px; color:#5f5f5f; border:1px solid #cfcfcf; background:#f0f0f0; cursor:pointer;}
+
+
+ /*툴팁*/
+.ttip {display:none; position:absolute; left:0; top:0; z-index:12; font-size:11px; line-height:1em; padding:7px 5px 3px 6px; color:#fff; white-space:nowrap; background:#555; border-radius:2px;}
+.ttip span {position:absolute; left:50%; bottom:-3px; margin:0 0 0 -2px; width:5px; height:3px; overflow:hidden; text-indent:-1111px; background:url('http://res.afreecatv.com/images/flashplayer/icon_arr_down.gif') no-repeat 0 0;}
+.ttip span { display: none; } /* 2017-0516 숨김처리  */
+	.setbox .viewer .ttip {left:-30px; top:-21px;}
+	.setbox .mchat .ttip {left:-23px; top:-21px;}
+	.setbox .c-out .ttip {left:-29px; top:-21px;}
+	.setbox .ice .ttip {left:-11px; top:-21px;}
+	.setbox .set .ttip {left:-5px; top:-21px;}
+	.setbox .close .ttip {left:inherit; right:6px; top:-21px;}
+	.setbox .close .ttip span {left:inherit; right:6px;}
+	.actionbox .emo .ttip {left:-20px; top:-24px;}
+	.actionbox .police .ttip {left:-5px; top:-24px;}
+	.actionbox .hope .ttip {left:-40px; top:-26px;}
+	.actionbox .star .ttip {left:-35px; top:-26px;}
+	.actionbox .sticker .ttip {left:inherit; right:-24px; top:-26px;}
+	.actionbox .sticker .ttip span {left:inherit; right:35px;}
+	.actionbox .choco .ttip {left:inherit; right:0px; top:-26px;}
+	.actionbox .choco .ttip span {left:inherit; right:9px;}
+
+
+
+/* 운영자 채팅 토글 */
+.chatbox .actionbox .admin .write_area {margin:5px 5px 5px 37px; padding:5px; width:165px; }
+.chatbox .actionbox .admin .ad_toggle {display:block;position:absolute;top:0;left:0;width:36px;}
+.chatbox .actionbox .admin .ad_toggle span {position:relative;display:block;width:36px;height:33px;}
+.chatbox .actionbox .admin .ad_toggle span input {position:absolute;top:0;left:0;z-index:9;cursor:pointer;}
+.chatbox .actionbox .admin .ad_toggle span label {display:block;position:absolute;top:0;left:0;z-index:10;width:36px;height:33px;cursor:pointer;text-indent:-9999px;background:url('//res.afreecatv.com/images/flashplayer/btn_admin.gif') no-repeat}
+.chatbox .actionbox .admin .ad_toggle .blue input:checked + label {background-position:-36px 0}
+.chatbox .actionbox .admin .ad_toggle .blue label {height:33px;background-position:0 0}
+.chatbox .actionbox .admin .ad_toggle .blue label.on {background-position:-36px 0}
+.chatbox .actionbox .admin .ad_toggle .red {height:34px}
+.chatbox .actionbox .admin .ad_toggle .red input:checked + label {background-position:-36px -33px}
+.chatbox .actionbox .admin .ad_toggle .red label {height:34px;background-position:0 -33px}
+.chatbox .actionbox .admin .ad_toggle .red label.on {background-position:-36px -33px}
+
+/* 매니저 채팅 */
+.layer_mchat {display:none; position:absolute; right:260px; top:90px; z-index:99; width:300px; height:255px; border:1px solid #adadad; background:#fff; opacity:.9;}
+.layer_mchat h2 {height:19px; padding:7px 0 0 9px; font-size:12px; color:#3d82f6; border-bottom:1px solid #e1e1e1;}
+.layer_mchat a.btn_close {position:absolute;right:2px;top:2px;display:block;width:9px;height:10px;padding:5px; overflow:hidden;text-indent:-9999px;z-index:9;  background:url(//res.afreecatv.com/images/flashplayer/btn_close_emo.gif) no-repeat center;}
+.layer_mchat .sendbox {position:absolute; left:0; bottom:0; width:100%; height:35px; padding:5px 0 0; border-top:1px solid #e1e1e1; }
+.layer_mchat .sendbox .input {float:left; margin:0 0 0 7px; width:224px; height:26px; padding:2px 5px 0; font-size:12px; line-height:1.1em; color:#5f5f5f; border:1px solid #d3d3d3;border-right:none; overflow:auto;vertical-align:middle}
+.layer_mchat .sendbox a.send {float:left; display:inline-block; display:block;width:52px;height:28px;overflow:hidden; z-index:9; background:url('//res.afreecatv.com/images/common/n.gif') no-repeat center;text-align:center;line-height:28px;background:#f1f1f1;font-size:11px;border:1px solid #d3d3d3;vertical-align:middle;text-decoration:none}
+.layer_mchat .mchatlist {padding:12px 9px; width:282px; height:163px; overflow:auto; overflow-x:hidden;}
+
+/* 이모티콘 3개제한 레이어 */
+.emo_tiplayer {display:block; position:absolute; left:-7px; top:-67px; z-index:13;width:224px;height:58px;/*text-indent:-9999px;background:url('http://res.afreecatv.com/images/flashplayer/img_emo_layer.png') no-repeat */border:1px solid #0165a4;background:#11a3ff;color:#fff;border-radius:2px}
+.emo_tiplayer em.txt{text-align:center;padding:10px 33px 10px 33px;display:block;line-height:1.5em}
+.emo_tiplayer .icon{background:url('//res.afreecatv.com/images/flashplayer/tool.png') 0 0 no-repeat;width:8px;height:5px;display:block;position:absolute;bottom:-5px;left:10px}
+.emo_tiplayer button {display:block;position:absolute;top:1px;right:1px;width:18px;height:17px;text-indent:-9999px;border:none;background:none;cursor:pointer}
+.emo_tiplayer button.close {display:block;position:absolute;top:1px;right:1px;width:18px;height:17px;border:none;background:url(//res.afreecatv.com/images/flashplayer/btn_close.gif) 5px 5px no-repeat;cursor:pointer}
+
+
+/* 투표 */
+.poll_layer{background:#ebf3ff;position:absolute; z-index: 2; top:-1px;left:0;height:26px;width:100%;padding-top:5px;border-bottom:1px solid #bcc9dd}
+.poll_layer a span, .poll_layer .btn_close{background:url(//res.afreecatv.com/images/flashplayer/bul_poll.png) -9999px -99999px no-repeat }
+.poll_layer .btn_close{width:15px;height:14px;background-position:0 -75px;border:none;position:absolute;top:9px;right:5px;cursor:pointer}
+.poll_layer .btn_close:hover {box-shadow: 0 0 1px rgba(0, 0, 0, 0.6);}
+.poll_layer a span{font-size:11px;padding:3px 4px 3px 19px;margin-right:5px;border-radius:2px;color:#fff}
+.poll_layer a.poll{color:#1a56d4;}
+.poll_layer a.poll span{background-color:#1a58d5;border:1px solid #0c3faf;background-position:0 -1px}
+.poll_layer a.poll_end{color:#434343}
+.poll_layer a.poll_end span{background-color:#adadad;border:1px solid #adadad;background-position:0 -25px}
+.poll_layer a.poll_result{color:#1a56d4}
+.poll_layer a.poll_result span{background-color:#1a58d5;border:1px solid #0c3faf;background-position:0 -48px}
+.poll_layer a {font-size:11px;text-decoration:none;padding:6px 0 4px 0;margin:0 5px 0 10px;display:inline-block}
+
+
+
+/* 채팅금지 관련 레이어  */
+.layer_s_chat {display:none; position:absolute; left:-1px; bottom:83px; z-index:50; width:238px;border:1px solid #2c84ce; background:#fff;}
+.layer_s_chat .layer_in { position: relative; width: 100%; height: 100%; }
+.layer_s_chat .layer_in .layer_ac {text-align:center;letter-spacing:-1px;color:#7e7e7e;line-height:17px;padding-top:18px;}
+.layer_s_chat .layer_in .btn_close { position: absolute; right: 7px; top: 7px; display: block; width: 9px; height: 10px; padding: 5px; overflow: hidden; text-indent: -9999px; z-index: 9; background: url('//res.afreecatv.com/images/flashplayer/btn_close_emo.gif') no-repeat center; }
+.layer_s_chat .layer_in .btn_wrap { padding: 14px 0 20px 0; text-align: center; }
+.layer_s_chat .layer_in .btn_st2 { display: inline-block; min-width: 44px; height: 20px; padding: 2px 15px; padding: 0 15px 0px 15px\0; font-size: 11px; line-height: 20px; text-align: center; color: #525252 !important; background: #fff; border: 1px solid #b8b8b8; vertical-align: top; text-decoration: none !important; border-radius: 3px; letter-spacing: -1px; }
+.layer_s_chat .layer_in .color_bl , a.color_bl { color: #328fde; }
+.layer_s_chat .layer_in .color_red , a.color_red { color: #f50000; }
+.layer_s_chat .layer_in .par { display: block; padding-top: 8px; }
+
+
+/* ******* 동영상 채팅관련 추가 ******** */
+.video_chat { position: absolute !important; z-index: 100; right: -301px; min-height: auto !important; border-left: 1px solid #adadad;  }
+.video_chat .video_chat_heaer { position: absolute; height: 24px; left: 0; right: 0; top: 0; border-bottom: 1px solid #e1e1e1;  }
+.video_chat .video_chat_heaer span { display: block; color: #3d82f6; font-size: 12px; padding: 3px 0 0 5px; margin-top: 3px; font-family: 'NGB' ,AppleGothic; }
+.video_chat .video_chat_heaer button {overflow:hidden; position: absolute; top: 0; right: 0px; width: 22px; height: 22px; text-indent: -9999em; border: none; background: url(http://res.afreecatv.com/images/flashplayer/icon_v2_smode.png) no-repeat 5px -40px; }
+.video_chat .box_o {width: auto;}
+.video_chat .shop_area {margin: 0px auto 15px auto; }
+.video_chat .chat_area { height: auto !important; overflow: hidden; top: 25px; }
+.video_chat .chat_area .tse-scroll-content { height: 100% !important;  }
+.smode .video_chat .video_chat_heaer { border-bottom: 1px solid #000; }
+
+/* 비디오 채팅영역 컨트롤 */
+.video_chat { right: -301px !important ;  }
+.video_chat .chat_area {bottom: 0; }
+.chat_open .video_chat { right: 0px !important; z-index: 50;  }
+
+
+/* 번역 관련 추가 */
+.translation_select,
+.translation_select_con .select_btn ul { -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
+
+.translation_select { overflow: hidden; position: absolute; z-index: 12; bottom: 71%; left: 0; right: 0; height: 0; font-size: 12px; text-align: center; opacity:0; filter: alpha(opacity=000);-moz-opacity: 0; }
+.translation_select_con { position: relative;; display: inline-block; *display: inline; margin: 0 auto; border: 1px solid #adadad; background-color: #fff; text-align: center; }
+.translation_select_con .select_btn { position: relative;display: inline-block; *display: inline; *vertical-align: middle; vertical-align: top;  height: 35px; min-width: 100px; text-align: left;  }
+.translation_select_con .select_btn a { position: relative; padding: 5px 25px 5px 10px; color: #3d82f6; text-decoration: none; font-weight: bold; font-size: 11px; line-height: 37px; }
+.translation_select_con .select_btn a span { font-size: 11px;padding: 0; background: none;}
+.translation_select_con .select_btn a em { position: absolute; top: 50%; right: 5px; margin: -5.5px 0 0 0; width: 12px; height: 11px; background: url('//res.afreecatv.com/images/flashplayer/icon_v2.png') no-repeat -139px -74px; }
+.translation_select_con .select_btn.on a em { background-position: -139px -98px; }
+.translation_select_con .select_btn ul { overflow: hidden; position: absolute; top: 100%; left: -1px; right: -1px; z-index: -1;  max-height: 102px; overflow-y: auto; opacity:0; filter: alpha(opacity=000);-moz-opacity: 0; height: 0; color: #555; background-color: #f8f8f8; text-align: left;}
+.translation_select_con .select_btn ul a {  display: block; padding: 1px 5px 0 10px; color: #555; font-weight: normal; line-height: 19px; }
+.translation_select_con .select_btn ul a:hover { color: #fff; background-color: #3d82f6; }
+.translation_select_con span { padding: 0 8px; font-size: 12px; *vertical-align: middle; background: url('//res.afreecatv.com/images/flashplayer/icon_sai.gif') no-repeat 0 0; }
+.ja_JP .translation_select_con span{background-position:0 3px}
+.translation_select_con button { height: 37px; padding: 0 14px; margin:-1px -1px -1px 0 ; font-size: 12px; font-weight: bold; border: 1px solid #397cec; color: #fff; background-color: #3d82f6; *vertical-align: middle; }
+.translation_select_con button span { position: relative; padding: 0; background: none; border: none; }
+.translation_select_con button {  }
+
+.en_US .translation_select_con .select_btn span, .zh_CN .translation_select_con .select_btn span, .zh_TW .translation_select_con .select_btn span, .th_TH .translation_select_con .select_btn span{display:inline-block}
+.en_US .translation_select_con span, .zh_CN .translation_select_con span, .zh_TW .translation_select_con span, .th_TH .translation_select_con span{display:none}
+
+.translation_select.on { overflow: visible; height: auto; bottom: 100%; opacity:1; filter: alpha(opacity=100);-moz-opacity:1; }
+.translation_select_con .select_btn.on ul { border: 1px solid #adadad; z-index: 1; height: auto; opacity:1; filter: alpha(opacity=100);-moz-opacity:1; }
+
+/****************************/
+/****************************/
+.dashboard_mode .chatbox .actionbox .ul1 li.police,
+.dashboard_mode .chatbox .setbox .btnset li.close ,
+.dashboard_mode .chatbox .actionbox .ul2 li { display: none !important; }
+
+/****************************/
+/****************************/
+/***** 채팅 스크린모드 ******/
+.smode .chatbox h2 {border-bottom:1px solid #383c45;}
+.smode .chatbox .setbox .btnset li a {background-image :url('//res.afreecatv.com/images/flashplayer/icon_v2_smode.png');}
+.smode .chatbox .btn_org{background:url('//res.afreecatv.com/images/flashplayer/bul_bar_smode.gif') 0 0 no-repeat;}
+
+.smode .chatbox .idsearch {border-bottom:1px solid #383c45;}
+.smode .chatbox .idsearch .input_text {color:#9da7bd; background:#3c3d46 !important; border:1px solid #23242a;}
+.smode .chatbox .idsearch .sel em a {color:#686e7c; border:1px solid #38383e; background:#101013 url('//res.afreecatv.com/images/flashplayer/icon_select_arrow.gif') no-repeat right 6px;}
+.smode .chatbox .idsearch .sel em a:hover {color:#9da7bd;}
+.smode .chatbox .idsearch .sel ul {border:1px solid #38383e;}
+.smode .chatbox .idsearch .sel li a {color:#686e7c; background:#101013;}
+.smode .chatbox .idsearch .sel li a:hover {color:#9da7bd; background:#2c2c38;}
+.smode .chatbox .idsearch a.btn_apply { border:1px solid #393a3f;background:#686e7c;color:#ffffff}
+
+.smode .chatbox .actionbox {border-top:1px solid #383c45; background:#1e1f24;}
+.smode .chatbox .actionbox .ul1 li {background:url('//res.afreecatv.com/images/flashplayer/icon_sai_smode.gif') no-repeat 0 50%;}
+.smode .chatbox .actionbox .ul2 li a {background-image:url('//res.afreecatv.com/images/flashplayer/icon_v2_smode.png');}
+.smode .chatbox .actionbox .ul2 li.star a {background-position:-120px -115px;}
+.smode .chatbox .actionbox .ul2 li.sticker  a {background-position:-144px -115px;}
+.smode .chatbox .actionbox .ul2 li.choco a {background-position:-168px -115px;}
+.smode .chatbox .actionbox .ul2 li.hope a {background-position:-96px -115px;}
+.smode .chatbox .actionbox .ul2 li.star a:hover {background-position:0 -115px;}
+.smode .chatbox .actionbox .ul2 li.sticker a:hover {background-position:-24px -115px;}
+.smode .chatbox .actionbox .ul2 li.choco a:hover {background-position:-48px -115px;}
+.smode .chatbox .actionbox .ul2 li.hope a:hover {background-position:-72px -115px;}
+
+.smode .chatbox .actionbox .chat_write {background:#2f323a; border:1px solid #383c45; }
+.smode .chatbox .actionbox .chat_write .write_area {color:#888; background:#2f323a;}
+.smode .chatbox .actionbox .chat_write .btn_send {color:#fff; background:#1579d7; border:1px solid #1579d7; }
+
+.smode .layer_mchat {border:1px solid #383c45; background:#282930;}
+.smode .layer_mchat h2 {color:#686e7c; border-bottom:1px solid #383c45;}
+.smode .layer_mchat a.btn_close {background:url('//res.afreecatv.com/images/flashplayer/btn_close_emo_smode.gif') no-repeat center;}
+.smode .layer_mchat .sendbox {border-top:1px solid #383c45; background:url('//res.afreecatv.com/images/flashplayer/icon_v2_smode.png') no-repeat 6px -445px;}
+.smode .layer_mchat .mchatlist .m_chat_area dt {color:#767676;}
+.smode .layer_mchat .mchatlist .m_chat_area dd {color:#d2d2d2;}
+
+.smode .poll_layer{background:#1e1f24;border-bottom:none;border-top:1px solid #383c45}
+.smode .poll_layer a{color:#b3c0dd !important}
+
+.smode .setbox .viewer .ttip,
+.smode .setbox .mchat .ttip,
+.smode .setbox .ice .ttip,
+.smode .setbox .set .ttip,
+.smode .setbox .close .ttip,
+.smode .setbox .c-out .ttip {top:inherit; bottom:-23px;}
+.smode .setbox .viewer .ttip span,
+.smode .setbox .mchat .ttip span,
+.smode .setbox .ice .ttip span,
+.smode .setbox .set .ttip span,
+.smode .setbox .close .ttip span,
+.smode .setbox .c-out .ttip span {top:-3px; bottom:inherit;  background:url('//res.afreecatv.com/images/flashplayer/icon_arr_up.gif') no-repeat 0 0;}
+
+.smode .chatbox {background:#1e1f24; min-height:inherit;}
+
+.smode .translation_select_con { background-color: #2f323a; border: 1px solid #383c45;}
+/*.smode .translation_select_con .select_btn ul { border: 1px solid #383c45; }*/
+.smode .translation_select_con .select_btn ul a { color: #a5aec6; background-color: #2f323a; }
+.smode .translation_select_con .select_btn ul a:hover { color: #fff; background-color: #3d82f6; }
+.smode .translation_select_con .select_btn a em { background-position: -164px -74px;}
+.smode .translation_select_con .select_btn.on a em { background-position: -164px -98px;}
+.smode .translation_select_con .select_btn.on ul { border: 1px solid #383c45; }
+.smode .translation_select_con span { border-left: 1px solid #383c45; background: none; }
+.smode .translation_select_con button span { border-left: none; background: none; }
+
+.smode .chatbox .chat_area { scrollbar-face-color: #6a6b6d; scrollbar-shadow-color: #77787b; scrollbar-highlight-color: #77787b; scrollbar-3dlight-color: #2a2b30; scrollbar-darkshadow-color: #2a2b30; scrollbar-track-color: #2a2b30; scrollbar-arrow-color: #6f7073; }
+.smode::-webkit-scrollbar {width:10px; height:10px;}
+.smode::-webkit-scrollbar-track-piece  {background-color:rgba(255, 0, 0, 0.2);}
+.smode::-webkit-scrollbar-thumb {width: 15px; background-color:rgba(255, 0, 0, 1);}
+
+.smode::-webkit-scrollbar {width: 18px; height: 18px; border: 1px solid #e10000; }
+.smode::-webkit-scrollbar-button:start:decrement,
+.smode::-webkit-scrollbar-button:end:increment {display: block; height: 10px;}
+.smode::-webkit-scrollbar-track {background: #efefef; -webkit-border-radius: 10px; border-radius:10px; -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.2)}
+.smode::-webkit-scrollbar-thumb {height: 50px; width: 50px; background: rgba(0,0,0,.2); -webkit-border-radius: 8px; border-radius: 8px; -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.1)}
+
+#emoticonBox {position:relative;overflow:hidden;width:246px;height:292px;border:1px solid #898687;background:#fff}
+#emoticonBox .clear {clear:both;}
+#emoticonBox img {border:none;}
+#emoticonBox h1 {height:30px;line-height:32px;text-align:center;border-bottom:1px solid #d7d7d7;color:#434343;font-weight:bold;font-size:12px}
+#emoticonBox .scroll_area {overflow-y:scroll;overflow-x:hidden;height:260px;padding:0 0 0 12px}
+#emoticonBox .scroll_area span{float:left;overflow:hidden;width:30px;height:30px;margin:12px 5px 0 0}
+#emoticonBox .scroll_area span a {display:block;width:30px;height:30px;}
+#emoticonBox .scroll_area span a:hover{background:url(//www.afreecatv.com/images/chat/emoticon/bg_box.gif) no-repeat}
+#emoticonBox .scroll_area span a img{width:26px;height:26px;vertical-align:top;margin:2px 0 0 2px;}
+#emoticonBox .btn_close {position:absolute;top:3px;right:0}
+#emoticonBox .btn_close a {display:block;width:23px;height:23px;text-indent:-9999px;background:url(//www.afreecatv.com/images/chat/emoticon/btn_close.gif) no-repeat 7px 7px}
+
+body, ul, ol, li, dt, dl, dd, div, h1, h2, h3, h4, h5, h6, p, form, fieldset, blockquote, iframe, input, object, table, tr, th, td{margin:0;padding:0}

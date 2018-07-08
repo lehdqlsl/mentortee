@@ -3,6 +3,7 @@ package com.mentotee.app;
 import com.mentotee.app.service.AccountsService;
 import com.mentotee.app.service.MatchService;
 import com.mentotee.app.vo.AccountsVO;
+import com.mentotee.app.vo.MatchingsSignVO;
 import com.mentotee.app.vo.MatchingsVO;
 
 import util.PushService;
@@ -22,6 +23,7 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -71,12 +73,30 @@ public class MatchController {
 		int mentor_id = ((Integer) data.get("mentor_id")).intValue();
 		int mentee_id = ((Integer) data.get("mentee_id")).intValue();
 		int state = ((Integer) data.get("state")).intValue();
+		
+		AccountsVO mentee = this.accounts_service.getInfo(mentee_id);
+		AccountsVO mentor = this.accounts_service.getInfo(mentor_id);
+		if(mentee.getCoin() < 500) {
+			//멘티 코인 부족
+			JSONObject param = new JSONObject();
+			param.put("type", Integer.valueOf(1));
+			param.put("title", "코인 부족");
+			param.put("message", "코인이 부족하여 멘토 체결을 실패하였습니다. 코인을 충전해주세요.");
+			PushService.SendPush(param, mentee.getToken());
+			map.put("responseCode",202);
+			return map;
+		}
+		
+		if(mentor.getCoin() < 500) {
+			//멘토 코인 부족
+			map.put("responseCode",201);
+			return map;
+		}		
+		
 		MatchingsVO vo = new MatchingsVO(0, mentor_id, mentee_id, state, null, null, null, null);
 		try {
-			int n = this.match_service.update(vo);
+			int n = this.match_service.update(vo,mentee,mentor);
 			if (n > 0) {
-				AccountsVO mentee = this.accounts_service.getInfo(mentee_id);
-				AccountsVO mentor = this.accounts_service.getInfo(mentor_id);
 
 				JSONObject param = new JSONObject();
 				param.put("type", Integer.valueOf(1));
@@ -126,5 +146,46 @@ public class MatchController {
 		}
 		return map;
 	}
+	
+	@RequestMapping(value = { "/matching/sign/{id}" }, method = {
+			org.springframework.web.bind.annotation.RequestMethod.GET })
+	public HashMap<String, Object> matchingList2(@PathVariable("id") int id) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
 
+		AccountsVO avo = this.accounts_service.getInfo(id);
+
+		//멘토
+		if (avo.getMentor() == 1) {
+			List<MatchingsSignVO> list = this.match_service.getMatchingMentees(id);
+			map.put("responseCode", "200");
+			map.put("dataLength", Integer.valueOf(list.size()));
+			map.put("data", list);
+		} else {
+			List<MatchingsSignVO> list = this.match_service.getMatchingMentors(id);
+			map.put("responseCode", "200");
+			map.put("dataLength", Integer.valueOf(list.size()));
+			map.put("data", list);
+		}
+		return map;
+	}
+	
+	@RequestMapping(value = { "/matching/renewal" }, method = RequestMethod.POST)
+	public HashMap<String, Object> matchingRenewal(@RequestBody Map<String, Object> data) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		
+		int accounts_num = ((Integer) data.get("accounts_num")).intValue();
+		int matchings_num = ((Integer) data.get("matchings_num")).intValue();
+		
+		AccountsVO vo = accounts_service.getInfo(accounts_num);
+		
+		if(vo.getCoin() < 650) {
+			map.put("responseCode", "201");
+		}else {
+			match_service.setRenewal(matchings_num, vo);
+			map.put("responseCode", "200");
+		}
+
+		return map;
+	}
 }

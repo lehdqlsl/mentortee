@@ -50,4 +50,25 @@
 		select *
 		from accounts where email = #{email} and password = ${password}
 	</select>
+	
+	<select id="getMatchingMentees" resultType="matchingssign">
+		SELECT a.matchings_num, a.mentee_id, a.mentor_id, a.date_applied, a.date_expire, b.name, b.interest, b.hobby FROM accounts b, matchings a WHERE a.mentee_id = b.accounts_num AND a.mentor_id=#{mentor_id} AND a.state = 2
+	</select>
+
+	<select id="getMatchingMentors" resultType="matchingssign">
+		SELECT a.matchings_num, a.mentor_id, a.mentee_id, a.date_applied, a.date_expire, b.name, b.interest, b.hobby FROM accounts b, matchings a WHERE a.mentor_id = b.accounts_num AND a.mentee_id=#{mentee_id} AND a.state = 2
+	</select>
+	
+	<update id="setRenewal">
+		update matchings set state = 2, date_expire = CURDATE() + INTERVAL 14 DAY WHERE matchings_num=#{matchings_num};
+	</update>
+	
+	<select id="isExpire" resultType="matchings">
+		select * from matchings where <![CDATA[ date(date_expire) < date(now()) ]]>
+	</select>
+	
+	<update id="setState" parameterType="matchings">
+		update matchings set state =
+		#{state} where matchings_num = #{matchings_num}
+	</update>
 </mapper>

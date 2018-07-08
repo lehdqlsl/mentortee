@@ -5,7 +5,7 @@
 <mapper namespace="com.mentotee.mybatis.MagazineMapper">
 	
 	<select id="getList" resultType="magazine">
-		select m.*, a.email from magazine m, accounts a where m.accounts_num = a.accounts_num
+		select m.*, a.email, a.name from magazine m, accounts a where m.accounts_num = a.accounts_num
 		and auth = 1 order by regdate desc;
 	</select>
 	
@@ -24,4 +24,8 @@
 	<update id="setAuth" parameterType="int">
 		update magazine set auth = 1 where b_num = #{b_num};
 	</update>
+	
+	<select id="getMagazine" resultType="magazine" parameterType="int">
+		select * from magazine where b_num = #{b_num};
+	</select>
 </mapper>

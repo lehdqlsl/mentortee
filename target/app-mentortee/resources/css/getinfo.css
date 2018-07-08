@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.img_profile {
+	float: left;
+	margin-right: 10px;
+}
+.wrap_view {
+	margin:auto;
+	padding-left:20px;
+}
+h3{
+	font-weight: bold;
+	float:left;
+}
+.info{
+	float: right;
+}
+.hit{
+	font-weight: bold;
+	font-size: 12px;
+	float:right;
+	color: grey;
+}
+#b_content{
+	margin-top: 60px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #CFCFCF;
+}
+.reply {
+	width:980px;
+	border-bottom: 1px solid #CFCFCF;
+	padding-bottom: 40px;
+}
+
+.noti {
+    background: url(/app/resources/img/mybs.png) 0 0 no-repeat;
+    display: inline-block;
+    text-indent: -9999px;
+    width: 33px;
+    height: 22px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+a.getinfo:link{
+	text-decoration: none;	
+}
+a.getinfo:visited{
+	text-decoration: none;	
+}
+a.getinfo:hover{
+	text-decoration: underline;
+}
+a.getinfo:active{
+	text-decoration: underline;
+}

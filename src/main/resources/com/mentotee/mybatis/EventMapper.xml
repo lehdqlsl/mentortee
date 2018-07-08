@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mentotee.mybatis.EventMapper">
+
+	
+	<insert id="insert" parameterType="event">
+		insert into today (accounts_id, reg_date) VALUES (#{accounts_id},null)
+	</insert>
+
+	<update id="update" parameterType="event">
+		update today set reg_date = curdate(), today_id=#{today_id} where accounts_id = #{accounts_id};
+	</update>
+	
+	<select id="getInfo" parameterType="int" resultType="event">
+		select * from today where accounts_id = #{today_id};
+	</select>
+
+</mapper>

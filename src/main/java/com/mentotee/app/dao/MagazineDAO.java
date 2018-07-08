@@ -33,4 +33,8 @@ public class MagazineDAO {
 	public int setAuth(String b_num) {
 		return sqlSession.update(NAMESPACE + ".setAuth", b_num);
 	}
+
+	public MagazineVO getMagazine(String b_num) {
+		return sqlSession.selectOne(NAMESPACE + ".getMagazine", b_num);
+	}
 }

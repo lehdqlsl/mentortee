@@ -12,6 +12,7 @@ import org.springframework.http.HttpRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -49,7 +50,7 @@ public class PageController {
 		String title = request.getParameter("title");
 		String contents = request.getParameter("ir1");
 
-		int n = magazine_service.insert(new MagazineVO(0, Integer.parseInt(a_num), title, contents, false, null));
+		int n = magazine_service.insert(new MagazineVO(0, Integer.parseInt(a_num), title, contents, false, null, null, null));
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") != null) {
 			return "main";
@@ -153,5 +154,12 @@ public class PageController {
 		List<MagazineVO> list = magazine_service.getList(1);
 		model.addAttribute("mlist", list);
 		return "magazine";
+	}
+	
+	@RequestMapping(value = "/magazine/{b_num}", method = RequestMethod.GET)
+	public String magazine(HttpServletRequest request, Model model, @PathVariable("b_num") String b_num) {
+		MagazineVO vo = magazine_service.getMagazine(b_num);
+		model.addAttribute("vo", vo);
+		return "view";
 	}
 }

@@ -7,29 +7,23 @@ public class MagazineVO {
 	String contents;
 	boolean auth;
 	String regdate;
-
+	String name;
 	String email;
 
 	public MagazineVO() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public MagazineVO(int b_num, int accounts_num, String title, String contents, boolean auth, String regdate) {
+	public MagazineVO(int b_num, int accounts_num, String title, String contents, boolean auth, String regdate,
+			String name, String email) {
+		super();
 		this.b_num = b_num;
 		this.accounts_num = accounts_num;
 		this.title = title;
 		this.contents = contents;
 		this.auth = auth;
 		this.regdate = regdate;
-	}
-	
-	public MagazineVO(int b_num, int accounts_num, String title, String contents, boolean auth, String regdate, String email) {
-		this.b_num = b_num;
-		this.accounts_num = accounts_num;
-		this.title = title;
-		this.contents = contents;
-		this.auth = auth;
-		this.regdate = regdate;
+		this.name = name;
 		this.email = email;
 	}
 
@@ -88,5 +82,15 @@ public class MagazineVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 
 }

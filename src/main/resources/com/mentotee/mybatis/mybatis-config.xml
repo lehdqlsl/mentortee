@@ -10,13 +10,24 @@
 		<typeAlias type="com.mentotee.app.vo.AccountsVO" alias="accounts"/>
 		<typeAlias type="com.mentotee.app.vo.MatchingsVO" alias="matchings"/>
 		<typeAlias type="com.mentotee.app.vo.MagazineVO" alias="magazine"/>
+		<typeAlias type="com.mentotee.app.vo.MagazinePurchaseVO" alias="magazinePurchase"/>
+		<typeAlias type="com.mentotee.app.vo.CoinPurchaseVO" alias="coinPurchase"/>
+		<typeAlias type="com.mentotee.app.vo.MatchingsSignVO" alias="matchingssign"/>		
+		<typeAlias type="com.mentotee.app.vo.CoinUseVO" alias="coinuse"/>
+		<typeAlias type="com.mentotee.app.vo.InquireVO" alias="inquire"/>
+		<typeAlias type="com.mentotee.app.vo.EventVO" alias="event"/>						
 	</typeAliases>
 
 	<mappers>
 		<!-- Mapper -->
+		<mapper resource="com/mentotee/mybatis/InquireMapper.xml" />
 		<mapper resource="com/mentotee/mybatis/AccountsMapper.xml" />
 		<mapper resource="com/mentotee/mybatis/MatchingsMapper.xml" />
 		<mapper resource="com/mentotee/mybatis/MagazineMapper.xml" />
+		<mapper resource="com/mentotee/mybatis/MagazinePurchaseMapper.xml" />
+		<mapper resource="com/mentotee/mybatis/CoinPurchaseMapper.xml" />
+		<mapper resource="com/mentotee/mybatis/CoinUseMapper.xml" />
+		<mapper resource="com/mentotee/mybatis/EventMapper.xml" />
 	</mappers>
 
 </configuration>
